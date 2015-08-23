@@ -1,0 +1,22 @@
+{
+    "name": "alexdpy/simple-acl-bundle",
+    "description": "Simple Acl Bundle",
+    "keywords": ["Acl"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexandre Dupuy",
+            "email": "alex.dpy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "alexdpy/acl": "~0.1",
+        "symfony/console": "~2.3",
+        "symfony/framework-bundle": "~2.3"
+    },
+    "autoload": {
+        "psr-4": { "AlexDpy\\SimpleAclBundle\\": "" }
+    }
+}

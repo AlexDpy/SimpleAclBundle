@@ -1,0 +1,26 @@
+services:
+    alex_dpy_simple_acl.connection:
+        alias: database_connection
+
+    alex_dpy_simple_acl.permission_buffer:
+        class: AlexDpy\Acl\Cache\PermissionBuffer
+        public: false
+
+    alex_dpy_simple_acl.schema:
+        class: AlexDpy\Acl\Schema\AclSchema
+        arguments:
+            - %alex_dpy_simple_acl.schema_options%
+            - @alex_dpy_simple_acl.connection
+
+    alex_dpy_simple_acl.schema_listener:
+        class: AlexDpy\SimpleAclBundle\EventListener\AclSchemaListener
+        arguments:
+            - @alex_dpy_simple_acl.schema
+
+    alex_dpy_simple_acl.acl:
+        class: AlexDpy\Acl\Acl
+        arguments:
+            - @alex_dpy_simple_acl.connection
+            - @alex_dpy_simple_acl.permission_buffer
+            - %alex_dpy_simple_acl.mask_builder_class%
+            - %alex_dpy_simple_acl.schema_options.permissions_table_name%
