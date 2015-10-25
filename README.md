@@ -13,6 +13,25 @@ You want an "easy to use" bundle ? This bundle is the answer !
 $ composer require alexdpy/simple-acl-bundle
 ```
 
+## Enable the bundle
+
+*app/AppKernel.php*:
+```php
+<?php
+// ...
+class AppKernel extends Kernel
+{
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            new AlexDpy\AclBundle\AlexDpyAclBundle(),
+        );
+        // ...
+    }
+    // ...
+}
+```
 
 ## Update your database schema
 
