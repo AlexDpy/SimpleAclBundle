@@ -2,6 +2,7 @@
 
 namespace AlexDpy\SimpleAclBundle\DependencyInjection;
 
+use AlexDpy\Acl\Database\Schema\AclSchema;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -36,7 +37,13 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('permissions_table_name')
-                            ->defaultValue('acl_permissions')
+                            ->defaultValue(AclSchema::DEFAULT_PERMISSIONS_TABLE_NAME)
+                        ->end()
+                        ->scalarNode('requester_column_length')
+                            ->defaultValue(AclSchema::DEFAULT_REQUESTER_COLUMN_LENGTH)
+                        ->end()
+                        ->scalarNode('resource_column_length')
+                            ->defaultValue(AclSchema::DEFAULT_RESOURCE_COLUMN_LENGTH)
                         ->end()
                     ->end()
                 ->end()

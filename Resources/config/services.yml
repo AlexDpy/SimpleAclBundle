@@ -5,6 +5,14 @@ services:
             - @alex_dpy_simple_acl.database_provider
             - @alex_dpy_simple_acl.permission_buffer
             - %alex_dpy_simple_acl.mask_builder_class%
+            - @alex_dpy_simple_acl.schema
 
     alex_dpy_simple_acl.permission_buffer:
         class: AlexDpy\Acl\Cache\PermissionBuffer
+        public: false
+
+    alex_dpy_simple_acl.schema:
+        class: AlexDpy\Acl\Database\Schema\AclSchema
+        public: false
+        arguments:
+            - %alex_dpy_simple_acl.schema_options%

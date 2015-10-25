@@ -44,5 +44,17 @@ class AlexDpySimpleAclExtension extends Extension
             'alex_dpy_simple_acl.schema_options.permissions_table_name',
             $config['schema']['permissions_table_name']
         );
+        $container->setParameter(
+            'alex_dpy_simple_acl.schema_options.requester_column_length',
+            $config['schema']['requester_column_length']
+        );
+        $container->setParameter(
+            'alex_dpy_simple_acl.schema_options.resource_column_length',
+            $config['schema']['resource_column_length']
+        );
+        $container->setParameter(
+            'alex_dpy_simple_acl.schema_options',
+            $config['schema']
+        );
     }
 }
